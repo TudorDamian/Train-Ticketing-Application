@@ -1,0 +1,551 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f4f7f8;
+  color: #16232b;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(18px, 4vw, 48px);
+  background: rgba(250, 252, 252, 0.96);
+  border-bottom: 1px solid #d8e0e4;
+  backdrop-filter: blur(12px);
+}
+
+.topbar h1,
+.section-heading h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.topbar h1 {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #58707c;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav a {
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #31424b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a.active,
+nav a:hover {
+  border-color: #9bb4c0;
+  background: #e7f0f3;
+}
+
+main {
+  padding: 28px clamp(16px, 4vw, 48px) 48px;
+}
+
+.page-grid,
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(420px, 1.5fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.page-grid {
+  row-gap: 12px;
+}
+
+.search-stack {
+  display: grid;
+  gap: 12px;
+  align-self: start;
+}
+
+.admin-overview {
+  grid-area: overview;
+  grid-column: 1 / -1;
+}
+
+.admin-stations {
+  grid-area: stations;
+}
+
+.admin-routes {
+  grid-area: routes;
+}
+
+.admin-trains {
+  grid-area: trains;
+}
+
+.admin-trips {
+  grid-area: trips;
+}
+
+.admin-delays {
+  grid-area: delays;
+}
+
+.admin-manifest {
+  grid-area: manifest;
+}
+
+.admin-stations,
+.admin-routes,
+.admin-trains,
+.admin-trips,
+.admin-delays,
+.admin-manifest,
+.admin-stations > .panel,
+.admin-routes > .panel,
+.admin-trains > .panel,
+.admin-trips > .panel,
+.admin-delays > .panel,
+.admin-manifest > .panel {
+  min-width: 0;
+}
+
+.results-panel {
+  align-self: start;
+}
+
+.single-column {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.admin-layout {
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  grid-template-areas:
+    "overview overview"
+    "stations routes"
+    "trains ."
+    "trips delays"
+    "trips manifest";
+}
+
+.panel {
+  border: 1px solid #d8e0e4;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(33, 57, 68, 0.08);
+  padding: 22px;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  font-size: 1.25rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.form-grid.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: minmax(160px, 260px) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #31424b;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #bac8ce;
+  border-radius: 6px;
+  background: #fbfdfd;
+  color: #14232b;
+  font: inherit;
+  min-height: 42px;
+  padding: 10px 11px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8da0a8;
+  opacity: 1;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #167a92;
+  outline: 3px solid rgba(22, 122, 146, 0.14);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.68;
+}
+
+.primary {
+  background: #126c81;
+  color: white;
+  padding: 10px 16px;
+}
+
+.primary:hover:not(:disabled) {
+  background: #0e5869;
+}
+
+.danger {
+  border: 1px solid #e0a398;
+  background: #fff1ef;
+  color: #8c2e1d;
+  padding: 9px 12px;
+}
+
+.danger:hover {
+  background: #ffe3df;
+}
+
+.secondary {
+  border: 1px solid #bac8ce;
+  background: #ffffff;
+  color: #1d3c48;
+  padding: 9px 12px;
+}
+
+.secondary:hover {
+  background: #eef5f7;
+}
+
+.status,
+.empty-state {
+  border-radius: 7px;
+  padding: 12px 14px;
+  margin: 12px 0;
+  background: #eef5f7;
+  color: #31424b;
+}
+
+.status.error {
+  border: 1px solid #e7b5aa;
+  background: #fff1ef;
+  color: #8c2e1d;
+}
+
+.status.success {
+  border: 1px solid #a9d6c1;
+  background: #edf9f3;
+  color: #1f6245;
+}
+
+.empty-state {
+  display: grid;
+  gap: 4px;
+  border: 1px dashed #b7c7cf;
+}
+
+.empty-state span {
+  color: #58707c;
+}
+
+.connection-list,
+.segment-list,
+.booking-list,
+.resource-list {
+  display: grid;
+  gap: 12px;
+}
+
+.helper-text {
+  margin: -6px 0 16px;
+  color: #58707c;
+  line-height: 1.5;
+}
+
+.stop-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(180px, 1.2fr) minmax(120px, 0.8fr) minmax(120px, 0.8fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 12px;
+  border: 1px solid #e5ebee;
+  border-radius: 8px;
+  background: #fbfdfd;
+}
+
+.connection-card {
+  border: 1px solid #d8e0e4;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfdfd;
+}
+
+.connection-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e5ebee;
+}
+
+.connection-summary span,
+.segment span,
+.selected-trip span,
+.receipt span {
+  color: #58707c;
+}
+
+.segment {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 56px minmax(120px, 1fr) minmax(130px, auto) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.segment > div {
+  display: grid;
+  gap: 3px;
+}
+
+.track-line {
+  position: relative;
+  height: 2px;
+  background: #126c81;
+}
+
+.track-line::before,
+.track-line::after {
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #126c81;
+  content: "";
+}
+
+.track-line::before {
+  left: 0;
+}
+
+.track-line::after {
+  right: 0;
+}
+
+.segment-meta {
+  font-size: 0.88rem;
+}
+
+.selected-trip {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  border-radius: 7px;
+  background: #eef5f7;
+}
+
+.receipt {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #d8e0e4;
+  border-radius: 8px;
+  background: #fbfdfd;
+}
+
+.receipt div {
+  display: grid;
+  gap: 3px;
+}
+
+.receipt ul {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-grid div {
+  display: grid;
+  gap: 4px;
+  min-height: 78px;
+  align-content: center;
+  border-radius: 8px;
+  background: #eef5f7;
+  padding: 14px;
+}
+
+.metric-grid strong {
+  font-size: 1.8rem;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.resource-list li,
+.editable-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5ebee;
+  color: #31424b;
+}
+
+.resource-list li:last-child,
+.editable-list li:last-child {
+  border-bottom: 0;
+}
+
+.editable-list {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.editable-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 980px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "overview"
+      "stations"
+      "routes"
+      "trains"
+      "trips"
+      "delays"
+      "manifest";
+  }
+
+  .segment {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .track-line {
+    width: 2px;
+    height: 32px;
+    margin-left: 8px;
+  }
+
+  .track-line::before,
+  .track-line::after {
+    left: -4px;
+  }
+
+  .track-line::after {
+    top: auto;
+    bottom: -4px;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 16px 12px 32px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  nav,
+  nav a {
+    width: 100%;
+  }
+
+  nav a {
+    text-align: center;
+  }
+
+  .form-grid,
+  .form-grid.compact,
+  .inline-form,
+  .stop-row,
+  .receipt,
+  .editable-list li,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
