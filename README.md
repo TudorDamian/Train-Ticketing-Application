@@ -1,7 +1,5 @@
 # Train Ticketing Application
 
-A full-stack Java + React application for managing train schedules, routes, bookings, and delay notifications.
-
 ## Overview
 
 - Backend: Spring Boot 4, PostgreSQL, Flyway migrations.
